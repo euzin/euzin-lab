@@ -9,6 +9,7 @@ go get github.com/prometheus/pushgateway
     
 ## 설정
 
+prometheus.yml : 
 ``` 
   - job_name: "pushgateway"
     scrape_interval: 5s
@@ -17,6 +18,9 @@ go get github.com/prometheus/pushgateway
     - targets: ['localhost:9091']
 ```
 
-    - 푸쉬...
-    - ... 
-    
+## 푸쉬 예제 
+
+```
+echo "some_metric 3.14" | curl --data-binary @- localhost:9091/metrics/job/pushgateway
+```
+
